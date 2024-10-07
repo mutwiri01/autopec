@@ -14,6 +14,7 @@ const ProblemDialog = ({ isOpen, onClose }) => {
   const [carMakes, setCarMakes] = useState([]); // Store the list of car makes and models
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [aiDiagnosis, setAiDiagnosis] = useState("");
+  const [successMessageVisible, setSuccessMessageVisible] = useState(false); // Track visibility of success message
 
   // Fetch car makes from the backend
   useEffect(() => {
@@ -40,9 +41,7 @@ const ProblemDialog = ({ isOpen, onClose }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const simulatedDiagnosis = await simulateAIDiagnosis(
-      formData.problemDescription
-    );
+    const simulatedDiagnosis = await simulateAIDiagnosis(formData.problemDescription);
     setAiDiagnosis(simulatedDiagnosis);
     setShowConfirmation(true);
   };
@@ -79,7 +78,11 @@ const ProblemDialog = ({ isOpen, onClose }) => {
           carModel: "",
           problemDescription: "",
         });
-        onClose();
+
+        // Show success message and auto-dismiss after 3 seconds
+        setSuccessMessageVisible(true);
+        setTimeout(() => setSuccessMessageVisible(false), 3000);
+        onClose(); // Close the dialog after booking
       } else {
         console.error("Failed to create booking");
       }
@@ -164,121 +167,120 @@ const ProblemDialog = ({ isOpen, onClose }) => {
   }
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
-    >
+    <>
+      {successMessageVisible && (
+        <div className="fixed top-4 right-4 bg-green-500 text-white p-4 rounded-lg shadow-lg z-50">
+          <p>Booking successful! We will contact you soon.</p>
+        </div>
+      )}
+
       <motion.div
-        initial={{ y: -50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        className="bg-white rounded-lg p-8 max-w-md w-full"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
       >
-        <h2 className="text-2xl font-bold mb-4">Describe Your Car Problem</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label htmlFor="customerName" className="block mb-2">
-              Customer Name
-            </label>
-            <input
-              id="customerName"
-              name="customerName"
-              value={formData.customerName}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border rounded-md"
-              required
-            />
-          </div>
-          <div className="mb-4">
-            <label htmlFor="carRegistrationNumber" className="block mb-2">
-              Car Registration Number
-            </label>
-            <input
-              id="carRegistrationNumber"
-              name="carRegistrationNumber"
-              value={formData.carRegistrationNumber}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border rounded-md"
-              required
-            />
-          </div>
-          <div className="mb-4">
-            <label htmlFor="carMake" className="block mb-2">
-              Car Make
-            </label>
-            <select
-              id="carMake"
-              name="carMake"
-              value={formData.carMake}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border rounded-md"
-              required
-            >
-              <option value="">Select a make</option>
-              {carMakes.map((carMake) => (
-                <option key={carMake.make} value={carMake.make}>
-                  {carMake.make}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="mb-4">
-            <label htmlFor="carModel" className="block mb-2">
-              Car Model
-            </label>
-            <select
-              id="carModel"
-              name="carModel"
-              value={formData.carModel}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border rounded-md"
-              required
-              disabled={!formData.carMake} // Disable the car model field until a make is selected
-            >
-              <option value="">Select a model</option>
-              {formData.carMake &&
-                carMakes
-                  .find((carMake) => carMake.make === formData.carMake)
-                  .models.map((model) => (
-                    <option key={model} value={model}>
-                      {model}
-                    </option>
-                  ))}
-            </select>
-          </div>
-          <div className="mb-4">
-            <label htmlFor="problemDescription" className="block mb-2">
-              Problem Description
-            </label>
-            <textarea
-              id="problemDescription"
-              name="problemDescription"
-              value={formData.problemDescription}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border rounded-md"
-              rows="4"
-              required
-            ></textarea>
-          </div>
-          <div className="flex justify-end">
-            <button
-              type="button"
-              onClick={onClose}
-              className="mr-2 px-4 py-2 bg-gray-200 rounded-md hover:bg-gray-300"
-            >
+        <motion.div
+          initial={{ y: -50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          className="bg-white rounded-lg p-8 max-w-md w-full"
+        >
+          <h2 className="text-2xl font-bold mb-4">Describe Your Car Problem</h2>
+          <form onSubmit={handleSubmit}>
+            <div className="mb-4">
+              <label htmlFor="customerName" className="block mb-2">
+                Customer Name
+              </label>
+              <input
+                id="customerName"
+                name="customerName"
+                value={formData.customerName}
+                onChange={handleChange}
+                className="w-full px-3 py-2 border rounded-md"
+                required
+              />
+            </div>
+            <div className="mb-4">
+              <label htmlFor="carRegistrationNumber" className="block mb-2">
+                Car Registration Number
+              </label>
+              <input
+                id="carRegistrationNumber"
+                name="carRegistrationNumber"
+                value={formData.carRegistrationNumber}
+                onChange={handleChange}
+                className="w-full px-3 py-2 border rounded-md"
+                required
+              />
+            </div>
+            <div className="mb-4">
+              <label htmlFor="carMake" className="block mb-2">
+                Car Make
+              </label>
+              <select
+                id="carMake"
+                name="carMake"
+                value={formData.carMake}
+                onChange={handleChange}
+                className="w-full px-3 py-2 border rounded-md"
+                required
+              >
+                <option value="">Select a make</option>
+                {carMakes.map((carMake) => (
+                  <option key={carMake.make} value={carMake.make}>
+                    {carMake.make}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="mb-4">
+              <label htmlFor="carModel" className="block mb-2">
+                Car Model
+              </label>
+              <select
+                id="carModel"
+                name="carModel"
+                value={formData.carModel}
+                onChange={handleChange}
+                className="w-full px-3 py-2 border rounded-md"
+                required
+                disabled={!formData.carMake} // Disable the car model field until a make is selected
+              >
+                <option value="">Select a model</option>
+                {formData.carMake &&
+                  carMakes
+                    .find((carMake) => carMake.make === formData.carMake)
+                    .models.map((model) => (
+                      <option key={model} value={model}>
+                        {model}
+                      </option>
+                    ))}
+              </select>
+            </div>
+            <div className="mb-4">
+              <label htmlFor="problemDescription" className="block mb-2">
+                Problem Description
+              </label>
+              <textarea
+                id="problemDescription"
+                name="problemDescription"
+                value={formData.problemDescription}
+                onChange={handleChange}
+                className="w-full px-3 py-2 border rounded-md"
+                rows="4"
+                required
+              />
+            </div>
+            <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md">
+              Submit
+            </button>
+            <button type="button" className="ml-4 bg-gray-300 text-gray-700 px-4 py-2 rounded-md" onClick={onClose}>
               Cancel
             </button>
-            <button
-              type="submit"
-              className="px-4 py-2 bg-primary text-white rounded-md hover:bg-secondary"
-            >
-              Get AI Diagnosis
-            </button>
-          </div>
-        </form>
+          </form>
+        </motion.div>
       </motion.div>
-    </motion.div>
+    </>
   );
 };
 

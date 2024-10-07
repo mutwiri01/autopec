@@ -1,0 +1,29 @@
+/* src/styles/Blog.css */
+.container {
+  animation: fadeIn 1s ease-in;
+}
+
+.blog-post {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.blog-post:hover {
+  transform: translateY(-5px);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}

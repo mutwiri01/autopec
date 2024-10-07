@@ -1,0 +1,56 @@
+.car-animation {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  overflow: hidden;
+}
+
+.car {
+  width: auto;
+  height: 50px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  animation: drive 15s linear infinite;
+}
+
+@keyframes drive {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Wheel animation */
+.car::before,
+.car::after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #333;
+  bottom: -5px;
+  animation: rotate 1s linear infinite;
+}
+
+.car::before {
+  left: 10px;
+}
+
+.car::after {
+  right: 10px;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

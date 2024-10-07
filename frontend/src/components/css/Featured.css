@@ -1,0 +1,26 @@
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.slick-slide {
+  transform-origin: center;
+  transition: transform 0.5s ease;
+  animation: rotateClockwise 10s infinite linear;
+}
+
+@keyframes rotateClockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.slick-current {
+  transform: scale(1.2); /* Enlarge the currently visible slide */
+}

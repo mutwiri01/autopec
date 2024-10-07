@@ -1,0 +1,59 @@
+/* Background and hover colors */
+.bg-secondary {
+  background-color: #009688 !important;
+}
+
+.hover\:text-hover:hover {
+  color: #26a69a !important;
+}
+
+/* Logo Animation: Vibration and Hitting Effect */
+.logo-animate {
+  animation: logo-hit 4s ease-in-out infinite, vibrate 0.3s infinite ease-in-out;
+}
+
+.name-animate {
+  display: inline-block;
+}
+
+@keyframes logo-hit {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes vibrate {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-1px, 1px);
+  }
+  40% {
+    transform: translate(-1px, -1px);
+  }
+  60% {
+    transform: translate(1px, 1px);
+  }
+  80% {
+    transform: translate(1px, -1px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+/* Mobile menu transition */
+.md\:hidden {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .md\:hidden {
+    display: flex;
+  }
+}

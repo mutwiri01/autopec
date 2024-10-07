@@ -1,0 +1,84 @@
+.hero-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 0 20px;
+  color: #000000;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .content-container {
+    flex-direction: row;
+  }
+}
+
+.text-section {
+  text-align: center;
+  color: #000000;
+  padding: 20px;
+}
+
+.image-section {
+  width: 100%;
+  max-width: 500px;
+}
+
+.rotating-image {
+  width: 100%;
+  height: auto;
+  transition: opacity 1s ease-in-out;
+}
+
+button {
+  background-color: #009688;
+  color: #000000;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Animation for glowing and fading effect */
+@keyframes glow {
+  0%, 100% {
+    opacity: 0;
+    text-shadow: 0 0 10px #009688, 0 0 20px #009688, 0 0 30px #009688, 0 0 40px #009688;
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 20px #009688, 0 0 30px #009688, 0 0 40px #009688, 0 0 50px #009688;
+  }
+}
+
+/* Apply the animation to the alert text */
+.alert-text {
+  animation: glow 3s infinite;
+}
+
+/* Media Query for Larger Screens */
+@media (min-width: 768px) {
+  .content-container {
+    flex-direction: row;
+  }
+  
+  .text-section {
+    order: 1; /* Keep text on the left */
+    padding-right: 20px;
+  }
+  
+  .image-section {
+    order: 2; /* Keep image on the right */
+  }
+}

@@ -1,0 +1,29 @@
+@keyframes light-move {
+  0% {
+    border-color: rgba(0, 128, 128, 1); /* Teal */
+    box-shadow: 0 0 5px rgba(0, 128, 128, 1);
+  }
+  25% {
+    border-color: rgba(0, 128, 128, 1);
+    box-shadow: 5px 5px 5px rgba(0, 128, 128, 1);
+  }
+  50% {
+    border-color: rgba(0, 128, 128, 1);
+    box-shadow: 0 0 15px rgba(0, 128, 128, 0.5);
+  }
+  75% {
+    border-color: rgba(0, 128, 128, 1);
+    box-shadow: -5px -5px 5px rgba(0, 128, 128, 1);
+  }
+  100% {
+    border-color: rgba(0, 128, 128, 1);
+    box-shadow: 0 0 5px rgba(0, 128, 128, 1);
+  }
+}
+
+.animate-light {
+  border-width: 4px;
+  border-style: solid;
+  border-color: transparent;
+  animation: light-move 2s linear infinite;
+}

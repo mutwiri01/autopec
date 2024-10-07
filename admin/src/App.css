@@ -1,0 +1,116 @@
+/* App.css */
+body {
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #009688; /* Teal color */
+  color: white;
+  position: sticky; /* Stick navbar to the top */
+  top: 0;
+  z-index: 1000; /* Ensure it stays above other content */
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 40px; /* Adjust as necessary */
+  margin-right: 10px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+}
+
+.hamburger {
+  display: none; /* Hide hamburger by default */
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.bar {
+  height: 4px;
+  width: 25px;
+  background-color: white;
+  margin: 3px 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+  .nav-links {
+    display: none; /* Hide links by default on small screens */
+    flex-direction: column; /* Stack links vertically */
+    position: absolute; /* Absolute positioning */
+    top: 60px; /* Below the navbar */
+    left: 0;
+    background-color: #009688; /* Match navbar color */
+    width: 100%; /* Full width */
+    padding: 1rem; /* Add padding */
+  }
+
+  .nav-links.open {
+    display: flex; /* Show links when menu is open */
+  }
+
+  .hamburger {
+    display: flex; /* Show hamburger icon on small screens */
+  }
+}
+
+/* App.css */
+/* Additional styles for the bookings table */
+
+table {
+  width: 100%; /* Full width */
+  border-collapse: collapse; /* Remove spacing between cells */
+}
+
+th, td {
+  padding: 12px 15px; /* Increased padding for better spacing */
+}
+
+tbody tr {
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1; /* Light gray on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+  th, td {
+    display: block; /* Stack cells vertically */
+    width: 100%; /* Full width */
+  }
+  
+  th {
+    position: absolute; /* Position absolute for header */
+    left: -9999px; /* Hide off-screen */
+  }
+
+  tbody tr {
+    margin-bottom: 15px; /* Spacing between rows */
+    border: 1px solid #ddd; /* Add border around each row */
+    border-radius: 5px; /* Rounded corners */
+    overflow: hidden; /* Hide overflow */
+  }
+
+  tbody tr:hover {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add shadow on hover */
+  }
+}
+

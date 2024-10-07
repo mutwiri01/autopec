@@ -14,12 +14,13 @@ import exhaustBefore from '../../assets/img/prado1.jpg';
 import exhaustAfter from '../../assets/img/prado5.jpg';
 import maintenanceBefore from '../../assets/img/a2.jpg';
 import maintenanceAfter from '../../assets/img/tx1.jpg';
-import brakeRepairBefore from '../../assets/img/c1.jpg';
-import brakeRepairAfter from '../../assets/img/wash-5144828_1280.jpg';
-import bodyServiceBefore from '../../assets/img/hilux1.jpg';
-import bodyServiceAfter from '../../assets/img/hilux2.jpg';
-import engineServiceBefore from '../../assets/img/a1.jpg';
-import engineServiceAfter from '../../assets/img/pa1.jpeg';
+import brakeRepairBefore from '/c1.jpg';
+import brakeRepairAfter from '/wash-5144828_1280.jpg';
+import bodyServiceBefore from '/hilux1.jpg';
+import bodyServiceAfter from '/hilux2.jpg';
+import engineServiceBefore from '/a1.jpg';
+import engineServiceAfter from '/pa1.jpeg';
+
 
 const OurServices = () => {
   const icon1 = <GiCarWheel className="text-green-500 mx-auto" size={48} />;

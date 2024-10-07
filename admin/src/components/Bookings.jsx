@@ -10,7 +10,7 @@ const Bookings = () => {
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const response = await fetch('http://localhost:9000/api/bookings');
+        const response = await fetch('https://autopeccloud.vercel.app/api/bookings');
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }

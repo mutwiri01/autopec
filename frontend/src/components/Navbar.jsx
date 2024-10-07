@@ -34,7 +34,9 @@ const Navbar = () => {
           <Link to="/cars" className="hover:text-hover flex items-center gap-2 text-white">
             <FaWrench /> Book a Service
           </Link>
-          <Link to="/blog" className="text-white">Blog</Link>
+          <Link to="/blog" className="hover:text-hover flex items-center gap-2 text-white">
+            <FaWrench /> Blog
+          </Link>
         </div>
 
         <div className="md:hidden flex items-center">
@@ -61,6 +63,9 @@ const Navbar = () => {
       </Link>
       <Link to="/cars" className="hover:text-hover flex items-center gap-2 text-white">
         <FaWrench /> Book a Service
+      </Link>
+      <Link to="/blog" className="hover:text-hover flex items-center gap-2 text-white">
+            <FaWrench /> Blog
       </Link>
       </div>
     </header>

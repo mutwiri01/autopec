@@ -11,6 +11,9 @@
         "src": "/api/(.*)",  
         "dest": "server.js"  
       }
-    ]
+    ],
+    "env": {
+      "MONGODB_URI": "mongodb+srv://a:p@autopec.jky8a.mongodb.net/?retryWrites=true&w=majority&appName=autopec"
+    }
   }
   

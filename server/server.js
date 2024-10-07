@@ -23,7 +23,5 @@ app.use('/api/carmakes', carMakeRoutes);
 app.use('/api/bookings', bookingRoutes);
 app.use('/api/diagnosis', diagnosisRoutes);
 
-// Start the server
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+// Export the app
+module.exports = app;  // Export app for serverless deployment

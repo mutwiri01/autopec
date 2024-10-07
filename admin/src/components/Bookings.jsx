@@ -1,7 +1,12 @@
-import { useEffect, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faCar, faClipboardList, faRobot } from '@fortawesome/free-solid-svg-icons';
-import '../App.css';
+import { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faUser,
+  faCar,
+  faClipboardList,
+  faRobot,
+} from "@fortawesome/free-solid-svg-icons";
+import "../App.css";
 
 const Bookings = () => {
   const [bookings, setBookings] = useState([]);
@@ -10,7 +15,7 @@ const Bookings = () => {
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const response = await fetch('https://autopeccloud.vercel.app/api/bookings');
+        const response = await fetch("http://localhost:9000/api/bookings");
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -25,7 +30,8 @@ const Bookings = () => {
     fetchBookings();
   }, []);
 
-  if (loading) return <div className="text-center py-4">Loading bookings...</div>;
+  if (loading)
+    return <div className="text-center py-4">Loading bookings...</div>;
 
   return (
     <div className="p-4 bg-gray-100 rounded-lg shadow-lg">
@@ -57,12 +63,15 @@ const Bookings = () => {
         </thead>
         <tbody>
           {bookings.map((booking) => (
-            <tr key={booking._id} className="hover:bg-gray-100 transition-colors">
-              <td className="py-3 px-4 border-b border-gray-200">{booking.customerName}</td>
-              <td className="py-3 px-4 border-b border-gray-200">{booking.carRegistrationNumber}</td>
-              <td className="py-3 px-4 border-b border-gray-200">{booking.carMake}</td>
-              <td className="py-3 px-4 border-b border-gray-200">{booking.problemDescription}</td>
-              <td className="py-3 px-4 border-b border-gray-200">{booking.diagnosis}</td> {/* Added diagnosis column */}
+            <tr
+              key={booking._id}
+              className="hover:bg-gray-100 transition-colors"
+            >
+              <td>{booking.customerName}</td>
+              <td>{booking.carRegistrationNumber}</td>
+              <td>{booking.carMake}</td>
+              <td>{booking.problemDescription}</td>
+              <td>{booking.diagnosis}</td>
             </tr>
           ))}
         </tbody>

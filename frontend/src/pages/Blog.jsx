@@ -1,9 +1,9 @@
 // src/pages/Blog.jsx
-import b1 from '../assets/img/a1.jpg';
-import b2 from '../assets/img/a2.jpg';
-import b3 from '../assets/img/a3.png';
-import b4 from '../assets/img/approch.jpg';
-import b5 from '../assets/img/news1.jpg';
+import b1 from '/a1.jpg';
+import b2 from '/a2.jpg';
+import b3 from '/a3.png';
+import b4 from '/approch.jpg';
+import b5 from '/news1.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWrench, faTools, faCar, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import '../components/css/Blog.css'; // Ensure to create this CSS file

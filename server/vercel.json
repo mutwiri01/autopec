@@ -2,25 +2,15 @@
     "version": 2,
     "builds": [
       {
-        "src": "server.js",  
+        "src": "server.js", 
         "use": "@vercel/node" 
       }
     ],
     "routes": [
       {
         "src": "/api/(.*)",  
-        "dest": "server.js"   
+        "dest": "server.js"  
       }
-    ],
-    "env": {
-      "PORT": "9000",        
-      "MONGODB_URI": "@mongodb_uri"
-    },
-    "functions": {
-      "api/**/*.js": {
-        "memory": 1024,      
-        "maxDuration": 10   
-      }
-    }
+    ]
   }
   

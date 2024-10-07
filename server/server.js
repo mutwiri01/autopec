@@ -7,7 +7,11 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
-app.use(cors({ origin: '*' }));
+app.use(cors({
+  origin: 'http://localhost:5173', // Allow the frontend origin
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods
+  credentials: true // If you are sending cookies or authentication data
+}));
 app.use(express.json()); // Ensure this is defined before routes
 
 // Connect to MongoDB
@@ -25,7 +29,7 @@ app.use('/api/diagnosis', diagnosisRoutes);
 
 
 app.get('/', (req, res) => {
-  res.status(200).json({ message: 'Welcome to the Resource API 8' });
+  res.status(200).json({ message: 'Welcome to the Resource API 9' });
 });
 
 // Export the app

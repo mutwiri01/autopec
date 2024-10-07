@@ -19,7 +19,7 @@ const ProblemDialog = ({ isOpen, onClose }) => {
   useEffect(() => {
     const fetchCarMakes = async () => {
       try {
-        const response = await fetch("http://localhost:9000/api/carmakes");
+        const response = await fetch("https://autopeccloud.vercel.app/api/carmakes");
         const data = await response.json();
         setCarMakes(data); // Assuming data is an array of objects with make and models
       } catch (error) {
@@ -61,7 +61,7 @@ const ProblemDialog = ({ isOpen, onClose }) => {
     };
 
     try {
-      const response = await fetch("http://localhost:9000/api/bookings", {
+      const response = await fetch("https://autopeccloud.vercel.app/api/bookings", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(bookingData),

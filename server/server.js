@@ -23,5 +23,10 @@ app.use('/api/carmakes', carMakeRoutes);
 app.use('/api/bookings', bookingRoutes);
 app.use('/api/diagnosis', diagnosisRoutes);
 
+
+app.get('/', (req, res) => {
+  res.status(200).json({ message: 'Welcome to the Resource API 8' });
+});
+
 // Export the app
 module.exports = app;  // Export app for serverless deployment

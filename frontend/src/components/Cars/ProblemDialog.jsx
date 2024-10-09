@@ -11,6 +11,7 @@ const ProblemDialog = ({ isOpen, onClose }) => {
     carModel: "",
     problemDescription: "",
   });
+  
   const [carMakes, setCarMakes] = useState([]); // Store the list of car makes and models
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [aiDiagnosis, setAiDiagnosis] = useState("");
@@ -92,8 +93,8 @@ const ProblemDialog = ({ isOpen, onClose }) => {
         });
 
         // Show success message and auto-dismiss after 3 seconds
-        setSuccessMessageVisible(true);
-        setTimeout(() => setSuccessMessageVisible(false), 3000);
+        setSuccessMessageVisible(true); // Show the success message
+        setTimeout(() => setSuccessMessageVisible(false), 3000); // Auto-dismiss
         onClose(); // Close the dialog after booking
       } else {
         console.error("Failed to create booking");
@@ -108,7 +109,7 @@ const ProblemDialog = ({ isOpen, onClose }) => {
     setAiDiagnosis("");
   };
 
-  if (!isOpen) return null;
+  if (!isOpen) return null; // If the dialog is not open, return null
 
   if (showConfirmation) {
     return (
@@ -122,7 +123,7 @@ const ProblemDialog = ({ isOpen, onClose }) => {
 
   return (
     <>
-      {successMessageVisible && (
+      {successMessageVisible && ( // Conditionally render the success message
         <div className="fixed top-4 right-4 bg-green-500 text-white p-4 rounded-lg shadow-lg z-50">
           <p>Booking successful! We will contact you soon.</p>
         </div>

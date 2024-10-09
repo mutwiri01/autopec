@@ -13,6 +13,10 @@ const Navbar = () => {
     setMenu(!menu);
   };
 
+  const closeMenu = () => {
+    setMenu(false);
+  };
+
   return (
     <header className="fixed w-full z-20 top-0 bg-secondary text-white py-4 shadow-lg">
       {/* Desktop Navigation */}
@@ -55,18 +59,18 @@ const Navbar = () => {
         top-16 font-semibold text-2xl text-center pt-8 pb-4 gap-8 w-3/4 h-fit 
         rounded-br-xl transition-transform duration-300`}
       >
-      <Link to="/" className="hover:text-hover flex items-center gap-2 text-white">
-        <FaCar /> Home
-      </Link>
-      <Link to="/services" className="hover:text-hover flex items-center gap-2 text-white">
-        <FaGasPump /> Services
-      </Link>
-      <Link to="/cars" className="hover:text-hover flex items-center gap-2 text-white">
-        <FaWrench /> Book a Service
-      </Link>
-      <Link to="/blog" className="hover:text-hover flex items-center gap-2 text-white">
-            <FaWrench /> Blog
-      </Link>
+        <Link to="/" className="hover:text-hover flex items-center gap-2 text-white" onClick={closeMenu}>
+          <FaCar /> Home
+        </Link>
+        <Link to="/services" className="hover:text-hover flex items-center gap-2 text-white" onClick={closeMenu}>
+          <FaGasPump /> Services
+        </Link>
+        <Link to="/cars" className="hover:text-hover flex items-center gap-2 text-white" onClick={closeMenu}>
+          <FaWrench /> Book a Service
+        </Link>
+        <Link to="/blog" className="hover:text-hover flex items-center gap-2 text-white" onClick={closeMenu}>
+          <FaWrench /> Blog
+        </Link>
       </div>
     </header>
   );

@@ -141,9 +141,10 @@ const ProblemDialog = ({ isOpen, onClose }) => {
         >
           <h2 className="text-2xl font-bold mb-4">Describe Your Car Problem</h2>
           <form onSubmit={handleSubmit}>
-            {/* Customer Name Field */}
             <div className="mb-4">
-              <label htmlFor="customerName" className="block mb-2">Customer Name</label>
+              <label htmlFor="customerName" className="block mb-2">
+                Customer Name
+              </label>
               <input
                 id="customerName"
                 name="customerName"
@@ -153,10 +154,10 @@ const ProblemDialog = ({ isOpen, onClose }) => {
                 required
               />
             </div>
-
-            {/* Car Registration Number Field */}
             <div className="mb-4">
-              <label htmlFor="carRegistrationNumber" className="block mb-2">Car Registration Number</label>
+              <label htmlFor="carRegistrationNumber" className="block mb-2">
+                Car Registration Number
+              </label>
               <input
                 id="carRegistrationNumber"
                 name="carRegistrationNumber"
@@ -166,10 +167,10 @@ const ProblemDialog = ({ isOpen, onClose }) => {
                 required
               />
             </div>
-
-            {/* Car Make Dropdown */}
             <div className="mb-4">
-              <label htmlFor="carMake" className="block mb-2">Car Make</label>
+              <label htmlFor="carMake" className="block mb-2">
+                Car Make
+              </label>
               <select
                 id="carMake"
                 name="carMake"
@@ -186,10 +187,10 @@ const ProblemDialog = ({ isOpen, onClose }) => {
                 ))}
               </select>
             </div>
-
-            {/* Car Model Dropdown */}
             <div className="mb-4">
-              <label htmlFor="carModel" className="block mb-2">Car Model</label>
+              <label htmlFor="carModel" className="block mb-2">
+                Car Model
+              </label>
               <select
                 id="carModel"
                 name="carModel"
@@ -201,17 +202,19 @@ const ProblemDialog = ({ isOpen, onClose }) => {
               >
                 <option value="">Select a model</option>
                 {formData.carMake &&
-                  carMakes.find((carMake) => carMake.make === formData.carMake)?.models.map((model) => (
-                    <option key={model} value={model}>
-                      {model}
-                    </option>
-                  ))}
+                  carMakes
+                    .find((carMake) => carMake.make === formData.carMake)
+                    .models.map((model) => (
+                      <option key={model} value={model}>
+                        {model}
+                      </option>
+                    ))}
               </select>
             </div>
-
-            {/* Problem Description Field */}
             <div className="mb-4">
-              <label htmlFor="problemDescription" className="block mb-2">Problem Description</label>
+              <label htmlFor="problemDescription" className="block mb-2">
+                Problem Description
+              </label>
               <textarea
                 id="problemDescription"
                 name="problemDescription"
@@ -223,9 +226,12 @@ const ProblemDialog = ({ isOpen, onClose }) => {
               />
             </div>
 
-            {/* AI Diagnosis Display */}
+            {/* AI Diagnosis Section */}
             {aiDiagnosis && (
-              <div className="mb-4 p-4 border rounded-md bg-gray-100">
+              <div
+                className="mb-4 p-4 border rounded-md bg-gray-100 overflow-y-auto"
+                style={{ maxHeight: "150px" }} // Set max height and scrollable
+              >
                 <h3 className="font-semibold">AI Diagnosis:</h3>
                 <p>{aiDiagnosis}</p>
               </div>

@@ -25,7 +25,7 @@ router.post('/', async (req, res) => {
           content: `As a professional mechanic, diagnose the following car problem: "${problemDescription}". Provide a detailed explanation of possible issues, potential causes, and recommended actions to take.`
         },
       ],
-      max_tokens: 500, // Adjust max tokens as needed for more detail
+      max_tokens: 300, // Adjust max tokens as needed for more detail
       temperature: 1, // Adjust to control the creativity of responses
     });
 

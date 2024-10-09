@@ -22,7 +22,7 @@ router.post('/', async (req, res) => {
       messages: [
         {
           role: "user",
-          content: `As a professional mechanic, diagnose the following car problem: "${problemDescription}". Provide a detailed explanation of possible issues, potential causes, and recommended actions to take.`
+          content: `As a professional mechanic, diagnose the following car problem: "${problemDescription}".In 30 to 40 words Provide a brief explanation of possible issues, potential causes, and recommended to take to AUTOPEC.`
         },
       ],
       max_tokens: 100, // Adjust max tokens as needed for more detail

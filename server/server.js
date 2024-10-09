@@ -30,7 +30,7 @@ app.listen(PORT, () => {
 });
 
 app.get('/', (req, res) => {
-  res.status(200).json({ message: 'Welcome to the Resource API 10' });
+  res.status(200).json({ message: 'Welcome to the AUTOPEC CLOUD' });
 });
 
 // Export the app

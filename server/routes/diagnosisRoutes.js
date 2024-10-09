@@ -20,12 +20,17 @@ router.post('/', async (req, res) => {
     const aiResponse = await groq.chat.completions.create({
       model: "llama3-8b-8192", // Use the appropriate Groq model
       messages: [
-        { role: "user", content: `Based on the problem description "${problemDescription}", what could be the potential car issues?` },
+        {
+          role: "user",
+          content: `As a professional mechanic, diagnose the following car problem: "${problemDescription}". Provide a detailed explanation of possible issues, potential causes, and recommended actions to take.`
+        },
       ],
-      max_tokens: 100, // Adjust max tokens as needed
+      max_tokens: 150, // Adjust max tokens as needed for more detail
+      temperature: 0.7, // Adjust to control the creativity of responses
     });
 
-    const diagnosis = aiResponse.choices[0].message.content;
+    // Ensure the response is complete and informative
+    const diagnosis = aiResponse.choices[0]?.message?.content.trim() || "No diagnosis available.";
     return res.status(200).json({ diagnosis });
   } catch (error) {
     console.error('Error calling Groq API:', error);

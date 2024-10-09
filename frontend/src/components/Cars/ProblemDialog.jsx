@@ -41,9 +41,21 @@ const ProblemDialog = ({ isOpen, onClose }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const simulatedDiagnosis = await simulateAIDiagnosis(formData.problemDescription);
-    setAiDiagnosis(simulatedDiagnosis);
-    setShowConfirmation(true);
+
+    // Call the diagnosis route in the backend for AI-based diagnosis
+    try {
+      const response = await fetch("https://autopeccloud.vercel.app/api/diagnosis", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ problemDescription: formData.problemDescription }),
+      });
+
+      const result = await response.json();
+      setAiDiagnosis(result.diagnosis); // Set the diagnosis result
+      setShowConfirmation(true); // Proceed to booking confirmation
+    } catch (error) {
+      console.error("Error getting AI diagnosis:", error);
+    }
   };
 
   const handleConfirmBooking = async () => {
@@ -94,64 +106,6 @@ const ProblemDialog = ({ isOpen, onClose }) => {
   const handleCancelBooking = () => {
     setShowConfirmation(false);
     setAiDiagnosis("");
-  };
-
-  const simulateAIDiagnosis = async (problemDescription) => {
-    // Simulate a delay for AI diagnosis
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    // Define potential diagnoses based on keywords
-    const diagnoses = [
-      {
-        keywords: ["engine", "stall", "overheat"],
-        diagnosis: "It seems like the issue might be related to the engine.",
-      },
-      {
-        keywords: ["brake", "squeal", "soft pedal"],
-        diagnosis: "The problem could be with the braking system.",
-      },
-      {
-        keywords: ["transmission", "shift", "gear"],
-        diagnosis: "It might be an issue with the transmission.",
-      },
-      {
-        keywords: ["battery", "start", "electrical"],
-        diagnosis:
-          "The problem could be related to the battery or electrical system.",
-      },
-      {
-        keywords: ["steering", "vibration", "alignment"],
-        diagnosis: "The issue could be with the steering or suspension.",
-      },
-      {
-        keywords: ["tire", "flat", "pressure"],
-        diagnosis:
-          "It could be related to the tires, perhaps a puncture or low pressure.",
-      },
-      {
-        keywords: ["coolant", "leak", "overheat"],
-        diagnosis:
-          "There may be an issue with the cooling system, such as a coolant leak.",
-      },
-      {
-        keywords: ["fuel", "consumption", "smell"],
-        diagnosis: "The problem might be related to the fuel system.",
-      },
-    ];
-
-    // Check problem description for relevant keywords
-    for (const { keywords, diagnosis } of diagnoses) {
-      if (
-        keywords.some((keyword) =>
-          problemDescription.toLowerCase().includes(keyword)
-        )
-      ) {
-        return `Based on the description "${problemDescription}", the AI suggests: ${diagnosis}`;
-      }
-    }
-
-    // Default diagnosis if no keywords match
-    return `Based on the description "${problemDescription}", the AI suggests a general inspection of the vehicle.`;
   };
 
   if (!isOpen) return null;

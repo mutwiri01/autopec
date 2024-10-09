@@ -18,6 +18,7 @@ const carMakeRoutes = require('./routes/carMakeRoutes');
 const bookingRoutes = require('./routes/bookingRoutes');
 const diagnosisRoutes = require('./routes/diagnosisRoutes');
 
+
 // Use routes
 app.use('/api/carmakes', carMakeRoutes);
 app.use('/api/bookings', bookingRoutes);

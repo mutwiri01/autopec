@@ -9,7 +9,11 @@ const FeatureCard = ({ img, name, description }) => {
       whileTap={{ scale: 0.95 }}   // Tap effect for a slight reduction in size
     >
       <div>
-        <img src={img} alt={name} className="rounded-t-xl w-full" /> {/* Using `name` for alt text */}
+        <img 
+          src={img} 
+          alt={name} 
+          className="rounded-t-xl w-full h-60 object-cover" 
+        /> {/* Set a fixed height for images */}
       </div>
       <div className="flex flex-col justify-center items-center p-4">
         <h1 className="font-semibold text-xl text-primary pt-2">{name}</h1>

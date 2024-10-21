@@ -140,7 +140,7 @@ const Blog = () => {
               key={index}
               src={image}
               alt={`Repair ${selectedCarMake} ${index}`}
-              className="w-full h-40 object-cover rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+              className="w-full h-40 object-contain rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300" // Ensure images are contained
             />
           ))}
         </div>

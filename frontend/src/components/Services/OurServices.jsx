@@ -8,18 +8,18 @@ import ServiceCards from "./ServiceCards";
 import '../css/Services.css';
 
 // Importing images
-import tireWheelsBefore from '../../assets/img/p2.jpg';
-import tireWheelsAfter from '../../assets/img/p1.jpg';
-import exhaustBefore from '../../assets/img/prado1.jpg';
-import exhaustAfter from '../../assets/img/prado5.jpg';
+import tireWheelsBefore from '/lr2.jpg';
+import tireWheelsAfter from '/lr1.jpg';
+import exhaustBefore from '/buf2.jpg';
+import exhaustAfter from '/buf1.jpg';
 import maintenanceBefore from '../../assets/img/a2.jpg';
-import maintenanceAfter from '../../assets/img/tx1.jpg';
+import maintenanceAfter from '/e1.jpg';
 import brakeRepairBefore from '/c1.jpg';
 import brakeRepairAfter from '/wash-5144828_1280.jpg';
-import bodyServiceBefore from '/hilux1.jpg';
-import bodyServiceAfter from '/hilux2.jpg';
+import bodyServiceBefore from '/mech.jpg';
+import bodyServiceAfter from '/m2.jpg';
 import engineServiceBefore from '/a1.jpg';
-import engineServiceAfter from '/pa1.jpeg';
+import engineServiceAfter from '/p4.jpg';
 
 
 const OurServices = () => {

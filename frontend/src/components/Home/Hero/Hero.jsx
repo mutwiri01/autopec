@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import img0 from "../../../assets/img/c1.jpg";
-import img1 from "../../../assets/img/tx1.jpg";
-import img2 from "../../../assets/img/a1.jpg";
-import img3 from "../../../assets/img/hilux1.jpg";
-import img4 from "../../../assets/img/prado1.jpg";
+import img1 from "../../../assets/e1.jpg";
+import img2 from "../../../assets/p1.jpg";
+import img3 from "../../../assets/d1.jpg";
+import img4 from "../../../assets/b1.jpg";
 import img5 from "../../../assets/img/a2.jpg";
 import "../css/Hero.css";
 

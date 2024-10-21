@@ -11,7 +11,7 @@ const Featured = () => {
   const carsData = [
     {
       id: 0,
-      img: "/a1.jpg",
+      img: "/p4.jpg",
       name: "Paint Workshop",
       description: "Our paint workshop provides high-quality painting services, ensuring your vehicle looks brand new with a flawless finish",
     },
@@ -35,13 +35,13 @@ const Featured = () => {
     },
     {
       id: 4,
-      img: "/prado1.jpg",
+      img: "/pan1.jpg",
       name: "Panel Beating",
       description: "Our panel beating service offers precision repairs to your vehicle's panels, ensuring a seamless and professional finish after any collision",
     },
     {
       id: 5,
-      img: "/a4.jpg",
+      img: "/d3.jpg",
       name: "Diagnostic Services",
       description: "Our diagnostic services utilize advanced technology to identify engine problems accurately, allowing for efficient repairs and maintenance",
     },

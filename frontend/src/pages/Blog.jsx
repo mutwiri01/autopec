@@ -82,38 +82,6 @@ const Blog = () => {
 
   return (
     <div className="pt-24 container mx-auto py-12">
-      <h1 className="text-4xl font-bold mb-8 text-center">Car Advice & Tips</h1>
-
-      {/* Blog posts section */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {blogPosts.map((post, index) => (
-          <div
-            key={index}
-            className="blog-post bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
-          >
-            <img
-              src={post.imageUrl}
-              alt={post.title}
-              className="w-full h-48 object-cover"
-            />
-            <div className="p-6">
-              <h2 className="text-2xl font-bold mb-2">{post.title}</h2>
-              <p className="text-sm text-gray-600">{post.date}</p>
-              <p className="mt-4">{post.content}</p>
-              <div className="flex mt-4 space-x-2">
-                <FontAwesomeIcon icon={faWrench} className="text-teal-500" />
-                <FontAwesomeIcon icon={faTools} className="text-teal-500" />
-                <FontAwesomeIcon icon={faCar} className="text-teal-500" />
-                <FontAwesomeIcon
-                  icon={faInfoCircle}
-                  className="text-teal-500"
-                />
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
       {/* Image Slider for Car Maintenance Tips */}
       <div className="mt-16">
         <h2 className="text-3xl font-bold mb-4 text-center">
@@ -174,6 +142,41 @@ const Blog = () => {
               alt={`Repair ${selectedCarMake} ${index}`}
               className="w-full h-40 object-cover rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
             />
+          ))}
+        </div>
+      </div>
+
+      {/* Blog posts section - Moved to the bottom */}
+      <div className="mt-16">
+        <h1 className="text-4xl font-bold mb-8 text-center">
+          Car Advice & Tips
+        </h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {blogPosts.map((post, index) => (
+            <div
+              key={index}
+              className="blog-post bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+            >
+              <img
+                src={post.imageUrl}
+                alt={post.title}
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-6">
+                <h2 className="text-2xl font-bold mb-2">{post.title}</h2>
+                <p className="text-sm text-gray-600">{post.date}</p>
+                <p className="mt-4">{post.content}</p>
+                <div className="flex mt-4 space-x-2">
+                  <FontAwesomeIcon icon={faWrench} className="text-teal-500" />
+                  <FontAwesomeIcon icon={faTools} className="text-teal-500" />
+                  <FontAwesomeIcon icon={faCar} className="text-teal-500" />
+                  <FontAwesomeIcon
+                    icon={faInfoCircle}
+                    className="text-teal-500"
+                  />
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </div>

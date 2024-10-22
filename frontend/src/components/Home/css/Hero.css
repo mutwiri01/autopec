@@ -1,12 +1,23 @@
+/* Navbar styles */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10; /* Ensure navbar stays on top */
+  height: 100px; /* Adjust to match your navbar height */
+}
+
+/* Hero container */
 .hero-container {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 0 20px;
+  padding: 100px 20px 0; /* Adjusted padding to account for navbar height */
   color: #000000;
+  position: relative;
 }
 
+/* Content container */
 .content-container {
   display: flex;
   flex-direction: column;
@@ -17,29 +28,34 @@
   gap: 20px;
 }
 
+/* Media query for larger screens */
 @media (min-width: 768px) {
   .content-container {
     flex-direction: row;
   }
 }
 
+/* Text section */
 .text-section {
   text-align: center;
   color: #000000;
   padding: 20px;
 }
 
+/* Image section */
 .image-section {
   width: 100%;
   max-width: 500px;
 }
 
+/* Rotating image styles */
 .rotating-image {
   width: 100%;
   height: auto;
   transition: opacity 1s ease-in-out;
 }
 
+/* Button styles */
 button {
   background-color: #009688;
   color: #000000;
@@ -52,13 +68,16 @@ button:hover {
 
 /* Animation for glowing and fading effect */
 @keyframes glow {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0;
-    text-shadow: 0 0 10px #009688, 0 0 20px #009688, 0 0 30px #009688, 0 0 40px #009688;
+    text-shadow: 0 0 10px #009688, 0 0 20px #009688, 0 0 30px #009688,
+      0 0 40px #009688;
   }
   50% {
     opacity: 1;
-    text-shadow: 0 0 20px #009688, 0 0 30px #009688, 0 0 40px #009688, 0 0 50px #009688;
+    text-shadow: 0 0 20px #009688, 0 0 30px #009688, 0 0 40px #009688,
+      0 0 50px #009688;
   }
 }
 
@@ -67,17 +86,45 @@ button:hover {
   animation: glow 3s infinite;
 }
 
-/* Media Query for Larger Screens */
+/* Car logos slider with continuous flow */
+.car-logos-slider {
+  overflow: hidden;
+  width: 100%;
+  margin: 20px 0;
+  position: relative;
+}
+
+.logos-wrapper {
+  display: flex;
+  animation: slide 30s linear infinite; /* Longer duration for smooth flow */
+}
+
+.car-logo {
+  width: 80px; /* Adjust size as needed */
+  margin: 0 15px;
+}
+
+/* Slide animation for continuous flow */
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Media query for larger screens */
 @media (min-width: 768px) {
   .content-container {
     flex-direction: row;
   }
-  
+
   .text-section {
     order: 1; /* Keep text on the left */
     padding-right: 20px;
   }
-  
+
   .image-section {
     order: 2; /* Keep image on the right */
   }

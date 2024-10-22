@@ -35,11 +35,11 @@ const Navbar = () => {
           <Link to="/services" className="hover:text-hover flex items-center gap-2 text-white">
             <FaGasPump /> Services
           </Link>
-          <Link to="/cars" className="hover:text-hover flex items-center gap-2 text-white">
-            <FaWrench /> Book a Service
-          </Link>
           <Link to="/blog" className="hover:text-hover flex items-center gap-2 text-white">
             <FaWrench /> Blog
+          </Link>
+          <Link to="/cars" className="hover:text-hover flex items-center gap-2 text-white">
+            <FaWrench /> Book a Service
           </Link>
         </div>
 
@@ -65,11 +65,11 @@ const Navbar = () => {
         <Link to="/services" className="hover:text-hover flex items-center gap-2 text-white" onClick={closeMenu}>
           <FaGasPump /> Services
         </Link>
-        <Link to="/cars" className="hover:text-hover flex items-center gap-2 text-white" onClick={closeMenu}>
-          <FaWrench /> Book a Service
-        </Link>
         <Link to="/blog" className="hover:text-hover flex items-center gap-2 text-white" onClick={closeMenu}>
           <FaWrench /> Blog
+        </Link>
+        <Link to="/cars" className="hover:text-hover flex items-center gap-2 text-white" onClick={closeMenu}>
+          <FaWrench /> Book a Service
         </Link>
       </div>
     </header>

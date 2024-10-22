@@ -5,6 +5,11 @@ import img2 from "../../../assets/p1.jpg";
 import img3 from "../../../assets/d1.jpg";
 import img4 from "../../../assets/b1.jpg";
 import img5 from "../../../assets/img/a2.jpg";
+import carLogo1 from "/honda.png"; // example car logos
+import carLogo2 from "/mits.png";
+import carLogo3 from "/niss.png";
+import carLogo4 from "/sub.png"; // example car logos
+import carLogo5 from "/toyo.png";
 import "../css/Hero.css";
 
 const Hero = () => {
@@ -31,16 +36,16 @@ const Hero = () => {
   }, [texts.length]);
 
   return (
-    <div className="hero-container pt-20">
-      <div className="content-container flex flex-col md:flex-row">
-        <div className="image-section md:order-2 mb-6 md:mb-0">
+    <div className="hero-container">
+      <div className="content-container">
+        <div className="image-section">
           <img
             src={images[currentTextIndex]}
             alt="Car"
-            className="rotating-image w-full md:w-auto"
+            className="rotating-image"
           />
         </div>
-        <div className="text-section md:order-1">
+        <div className="text-section">
           <p className="text-xl lg:text-2xl font-semibold text-black mb-4 md:mb-6">
             {" "}
             <span className="text-primary font-bold">
@@ -51,11 +56,26 @@ const Hero = () => {
           <h1 className="text-4xl lg:text-6xl font-bold leading-tight text-primary">
             Welcome to Autopec
           </h1>
+
+          {/* Car logos slider */}
+          <div className="car-logos-slider">
+            <div className="logos-wrapper">
+              <img src={carLogo1} alt="Car Logo 1" className="car-logo" />
+              <img src={carLogo2} alt="Car Logo 2" className="car-logo" />
+              <img src={carLogo3} alt="Car Logo 3" className="car-logo" />
+              <img src={carLogo4} alt="Car Logo 4" className="car-logo" />
+              <img src={carLogo5} alt="Car Logo 5" className="car-logo" />
+              <img src={carLogo1} alt="Car Logo 1" className="car-logo" />
+              <img src={carLogo2} alt="Car Logo 2" className="car-logo" />
+              {/* Duplicate logos for seamless flow */}
+            </div>
+          </div>
+
           <p className="alert-text text-lg lg:text-2xl font-medium text-primary">
             Your One-Stop Auto Shop!
           </p>
           <p className="text-sm lg:text-base text-black">
-            At Autopec, we take pride in delivering exceptional automotive services that keep your vehicle running smoothly. Our skilled technicians are here to provide top-notch care for your car. Experience reliability and quality because your car deserves the best!
+            At Autopec, we take pride in delivering exceptional automotive services that keep your vehicle running smoothly...
           </p>
         </div>
       </div>

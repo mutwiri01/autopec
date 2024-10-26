@@ -1,0 +1,6 @@
+version: 1
+frontend:
+  build:
+    commands:
+      - npm install
+      - npm run build

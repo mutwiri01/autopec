@@ -6,9 +6,22 @@
   height: 100px; /* Adjust to match your navbar height */
 }
 
+/* Logo styles */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.hero-logo {
+  width: 150px;
+  height: auto;
+}
+
 /* Hero container */
 .hero-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
@@ -28,7 +41,6 @@
   gap: 20px;
 }
 
-/* Media query for larger screens */
 @media (min-width: 768px) {
   .content-container {
     flex-direction: row;
@@ -114,7 +126,6 @@ button:hover {
   }
 }
 
-/* Media query for larger screens */
 @media (min-width: 768px) {
   .content-container {
     flex-direction: row;
@@ -129,3 +140,12 @@ button:hover {
     order: 2; /* Keep image on the right */
   }
 }
+/* Ensure images are optimized for performance */
+.rotating-image, .car-logo, .hero-logo {
+  width: 100%;
+  height: auto;
+  transition: opacity 0.5s ease-in-out; /* Faster transition */
+  display: block;
+}
+
+/* Other styles remain the same */

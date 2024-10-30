@@ -9,7 +9,7 @@ import m1 from "/re1.jpg"; // Add your maintenance-specific images
 import m2 from "/re5.jpg";
 import m3 from "/re2.jpg";
 import m4 from "/re6.jpg";
-import repairVideo from "/repair.mp4";
+import repairVideo from "/ew1.mp4";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faWrench,
@@ -55,7 +55,7 @@ const Blog = () => {
   const repairImages = {
     Landrover: ["/b3.jpg", "/lr3.jpg", "/b1.jpg", "/b2.jpg"],
     Toyota: ["/m3.jpg", "/m1.jpg", "/p4.jpg", "/m2.jpg"],
-    Nissan: ["/buf2.jpg", "/n2.jpg", "/n1.jpg", "/buf1.jpg"],
+    Nissan: ["/buf2.jpg", "/n1.jpg", "/buf1.jpg", "/re2.jpg"],
     Subaru: ["/s1.jpg", "/s2.jpg", "/s4.jpg", "/s3.jpg"],
   };
 
@@ -94,6 +94,7 @@ const Blog = () => {
                 src={image}
                 alt={`Maintenance Tip ${index + 1}`}
                 className="w-full h-48 object-cover rounded-lg shadow-md hover:shadow-lg"
+                loading="lazy" // Lazy load images
               />
             </div>
           ))}
@@ -106,6 +107,7 @@ const Blog = () => {
         <video
           className="w-full md:w-2/3 mx-auto rounded-lg shadow-lg"
           controls
+          loading="lazy" // Lazy load video
         >
           <source src={repairVideo} type="video/mp4" />
           Your browser does not support the video tag.
@@ -115,7 +117,7 @@ const Blog = () => {
       {/* Image gallery for selected car make */}
       <div className="mt-16">
         <h2 className="text-3xl font-bold mb-4 text-center">
-          Car Repair: Start to Finish
+          Our Mechanical Works
         </h2>
         <div className="text-center mb-6">
           <label htmlFor="car-make" className="text-lg font-semibold">
@@ -141,6 +143,7 @@ const Blog = () => {
               src={image}
               alt={`Repair ${selectedCarMake} ${index}`}
               className="w-full h-40 object-contain rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300" // Ensure images are contained
+              loading="lazy" // Lazy load images
             />
           ))}
         </div>
@@ -161,6 +164,7 @@ const Blog = () => {
                 src={post.imageUrl}
                 alt={post.title}
                 className="w-full h-48 object-cover"
+                loading="lazy" // Lazy load images
               />
               <div className="p-6">
                 <h2 className="text-2xl font-bold mb-2">{post.title}</h2>

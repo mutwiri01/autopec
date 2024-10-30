@@ -3,7 +3,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import { RiMenuUnfoldFill } from "react-icons/ri";
 import { FaCar, FaWrench, FaGasPump } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import logo from '../assets/img/l.png';  // import your logo image
+import logo from '/l.png';  // import your logo image
 import './css/Navbar.css';
 
 const Navbar = () => {

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../assets/img/l.png";
+import logo from "/l.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 

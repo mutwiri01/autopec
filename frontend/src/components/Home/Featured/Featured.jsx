@@ -11,7 +11,7 @@ const Featured = () => {
   const carsData = [
     {
       id: 0,
-      img: "/p4.jpg",
+      img: "/pa2.jpg",
       name: "Paint Workshop",
       description: "Our paint workshop provides high-quality painting services, ensuring your vehicle looks brand new with a flawless finish",
     },
@@ -29,15 +29,15 @@ const Featured = () => {
     },
     {
       id: 3,
-      img: "/tx1.jpg",
+      img: "/e3.jpg",
       name: "Engine Overhaul Repair",
       description: "We provide engine overhaul services, completely disassembling and rebuilding your engine to restore its performance and longevity.",
     },
     {
       id: 4,
-      img: "/pan1.jpg",
-      name: "Panel Beating",
-      description: "Our panel beating service offers precision repairs to your vehicle's panels, ensuring a seamless and professional finish after any collision",
+      img: "/jp.jpg",
+      name: "Number Plate Fitting",
+      description: "At Autopec, we ensure professional number plate fitting and that plates are securely attached, aligned, and clearly visible, enhancing the car’s appearance and meeting regulatory standards.",
     },
     {
       id: 5,

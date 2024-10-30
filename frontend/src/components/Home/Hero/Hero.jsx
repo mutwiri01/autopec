@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react";
-import img0 from "../../../assets/img/c1.jpg";
-import img1 from "../../../assets/e1.jpg";
-import img2 from "../../../assets/p1.jpg";
-import img3 from "../../../assets/d1.jpg";
-import img4 from "../../../assets/b1.jpg";
-import img5 from "../../../assets/img/a2.jpg";
-import carLogo1 from "/honda.png"; // example car logos
+import img0 from "/c1.jpg";
+import img1 from "/e3.jpg";
+import img2 from "/pa2.jpg";
+import img3 from "/d1.jpg";
+import img4 from "/b1.jpg";
+import img5 from "/a2.jpg";
+import carLogo1 from "/honda.png";
 import carLogo2 from "/mits.png";
 import carLogo3 from "/niss.png";
-import carLogo4 from "/sub.png"; // example car logos
+import carLogo4 from "/sub.png";
 import carLogo5 from "/toyo.png";
+import logo from '/l.png'; 
 import "../css/Hero.css";
 
 const Hero = () => {
@@ -24,30 +25,36 @@ const Hero = () => {
   ];
 
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
+  const [preloadImage, setPreloadImage] = useState(new Image());
 
   useEffect(() => {
+    // Set up image preloading for the next image
+    preloadImage.src = images[(currentTextIndex + 1) % images.length];
+
     const interval = setInterval(() => {
-      setCurrentTextIndex((prevIndex) =>
-        prevIndex === texts.length - 1 ? 0 : prevIndex + 1
-      );
+      setCurrentTextIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 3000);
 
     return () => clearInterval(interval);
-  }, [texts.length]);
+  }, [currentTextIndex, images]);
 
   return (
     <div className="hero-container">
+      <div className="logo-container">
+        <img src={logo} alt="Autopec Logo" className="hero-logo" loading="eager" />
+      </div>
+
       <div className="content-container">
         <div className="image-section">
           <img
             src={images[currentTextIndex]}
             alt="Car"
             className="rotating-image"
+            loading="lazy" // Lazy loading for all images except the first
           />
         </div>
         <div className="text-section">
           <p className="text-xl lg:text-2xl font-semibold text-black mb-4 md:mb-6">
-            {" "}
             <span className="text-primary font-bold">
               {texts[currentTextIndex]}
             </span>
@@ -57,17 +64,14 @@ const Hero = () => {
             Welcome to Autopec
           </h1>
 
-          {/* Car logos slider */}
           <div className="car-logos-slider">
             <div className="logos-wrapper">
-              <img src={carLogo1} alt="Car Logo 1" className="car-logo" />
-              <img src={carLogo2} alt="Car Logo 2" className="car-logo" />
-              <img src={carLogo3} alt="Car Logo 3" className="car-logo" />
-              <img src={carLogo4} alt="Car Logo 4" className="car-logo" />
-              <img src={carLogo5} alt="Car Logo 5" className="car-logo" />
-              <img src={carLogo1} alt="Car Logo 1" className="car-logo" />
-              <img src={carLogo2} alt="Car Logo 2" className="car-logo" />
-              {/* Duplicate logos for seamless flow */}
+              {[carLogo1, carLogo2, carLogo3, carLogo4, carLogo5].map((logo, index) => (
+                <img key={index} src={logo} alt={`Car Logo ${index + 1}`} className="car-logo" />
+              ))}
+              {[carLogo1, carLogo2].map((logo, index) => (
+                <img key={`duplicate-${index}`} src={logo} alt={`Duplicate Car Logo ${index + 1}`} className="car-logo" />
+              ))}
             </div>
           </div>
 

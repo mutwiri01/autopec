@@ -6,8 +6,8 @@ const ServiceCards = ({ icon, title, description, imgBefore, imgAfter }) => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIsAfter(prev => !prev); // Toggle the image every 3 seconds (or any duration you set)
-    }, 3000); // Change 3000 to the desired duration in milliseconds
+      setIsAfter(prev => !prev); // Toggle the image every 3 seconds
+    }, 3000);
 
     return () => clearInterval(interval); // Cleanup interval on component unmount
   }, []);
@@ -25,7 +25,7 @@ const ServiceCards = ({ icon, title, description, imgBefore, imgAfter }) => {
       <div className="relative z-10" onClick={handleImageClick}>
         {/* Image Section */}
         <img 
-          src={isAfter ? imgAfter : imgBefore} // Use state to toggle images
+          src={isAfter ? imgAfter : imgBefore} 
           alt={title} 
           className="mx-auto w-full h-48 object-cover rounded-md" 
         />
@@ -50,8 +50,8 @@ ServiceCards.propTypes = {
   icon: PropTypes.node.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  imgBefore: PropTypes.string.isRequired, // Updated to reflect new prop
-  imgAfter: PropTypes.string.isRequired,  // Updated to reflect new prop
+  imgBefore: PropTypes.string.isRequired,
+  imgAfter: PropTypes.string.isRequired,
 };
 
 export default ServiceCards;

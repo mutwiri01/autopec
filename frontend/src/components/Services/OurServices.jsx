@@ -46,7 +46,7 @@ const OurServices = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10 gap-5">
         <ServiceCards
           icon={icon4}
-          title="LED lighting installation"
+          title="LEDs lighting installation"
           description="Our LED lighting installation services bring a modern touch to your vehicle’s exterior and interior. With energy-efficient and stylish lighting options, we enhance visibility and aesthetic appeal, whether it's for headlights, interior ambient lighting, or other custom lighting needs."
           imgBefore={led}
           imgAfter={led2}

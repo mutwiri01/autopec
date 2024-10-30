@@ -48,7 +48,7 @@ const Hero = () => {
         <div className="image-section">
           <img
             src={images[currentTextIndex]}
-            alt="Car"
+            alt={`Service image: ${texts[currentTextIndex]}`}
             className="rotating-image"
             loading="lazy" // Lazy loading for all images except the first
           />

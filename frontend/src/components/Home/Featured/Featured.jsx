@@ -23,7 +23,7 @@ const Featured = () => {
     },
     {
       id: 2,
-      img: "/a3.png",
+      img: "/cw2.png",
       name: "Car Wash",
       description: "Our car wash service ensures your vehicle is thoroughly cleaned inside and out, leaving it sparkling and fresh",
     },

@@ -3,8 +3,8 @@ import { AiOutlineClose } from "react-icons/ai";
 import { RiMenuUnfoldFill } from "react-icons/ri";
 import { FaCar, FaWrench, FaGasPump } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import logo from '/l.png';  // import your logo image
-import './css/Navbar.css';
+import logo from "/l.png"; // import your logo image
+import "./css/Navbar.css";
 
 const Navbar = () => {
   const [menu, setMenu] = useState(false);
@@ -29,18 +29,31 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex items-center gap-8 font-medium text-xl">
-          <Link to="/" className="hover:text-hover flex items-center gap-2 text-white">
+          <Link
+            to="/"
+            className="hover:text-hover flex items-center gap-2 text-white"
+          >
             <FaCar /> Home
           </Link>
-          <Link to="/services" className="hover:text-hover flex items-center gap-2 text-white">
+          <Link
+            to="/services"
+            className="hover:text-hover flex items-center gap-2 text-white"
+          >
             <FaGasPump /> Services
           </Link>
-          <Link to="/blog" className="hover:text-hover flex items-center gap-2 text-white">
+          <Link
+            to="/blog"
+            className="hover:text-hover flex items-center gap-2 text-white"
+          >
             <FaWrench /> Blog
           </Link>
-          <Link to="/cars" className="hover:text-hover flex items-center gap-2 text-white">
+          {/* Updated to external anchor tag */}
+          <a
+            href="https://autopec-logistics.vercel.app/"
+            className="hover:text-hover flex items-center gap-2 text-white"
+          >
             <FaWrench /> Book a Service
-          </Link>
+          </a>
         </div>
 
         <div className="md:hidden flex items-center">
@@ -59,18 +72,35 @@ const Navbar = () => {
         top-16 font-semibold text-2xl text-center pt-8 pb-4 gap-8 w-3/4 h-fit 
         rounded-br-xl transition-transform duration-300`}
       >
-        <Link to="/" className="hover:text-hover flex items-center gap-2 text-white" onClick={closeMenu}>
+        <Link
+          to="/"
+          className="hover:text-hover flex items-center gap-2 text-white"
+          onClick={closeMenu}
+        >
           <FaCar /> Home
         </Link>
-        <Link to="/services" className="hover:text-hover flex items-center gap-2 text-white" onClick={closeMenu}>
+        <Link
+          to="/services"
+          className="hover:text-hover flex items-center gap-2 text-white"
+          onClick={closeMenu}
+        >
           <FaGasPump /> Services
         </Link>
-        <Link to="/blog" className="hover:text-hover flex items-center gap-2 text-white" onClick={closeMenu}>
+        <Link
+          to="/blog"
+          className="hover:text-hover flex items-center gap-2 text-white"
+          onClick={closeMenu}
+        >
           <FaWrench /> Blog
         </Link>
-        <Link to="/cars" className="hover:text-hover flex items-center gap-2 text-white" onClick={closeMenu}>
+        {/* Updated to external anchor tag */}
+        <a
+          href="https://autopec-logistics.vercel.app/"
+          className="hover:text-hover flex items-center gap-2 text-white"
+          onClick={closeMenu}
+        >
           <FaWrench /> Book a Service
-        </Link>
+        </a>
       </div>
     </header>
   );

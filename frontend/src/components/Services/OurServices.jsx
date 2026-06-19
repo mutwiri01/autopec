@@ -2,7 +2,7 @@ import { GiCarWheel } from "react-icons/gi";
 import { SiGoogleearthengine } from "react-icons/si";
 import { MdDesignServices } from "react-icons/md";
 import { IoSettings } from "react-icons/io5";
-import { FaCar } from "react-icons/fa";
+import { FaCar, FaWrench } from "react-icons/fa"; // Imported FaWrench for the button icon
 import { SiCoronaengine } from "react-icons/si";
 import ServiceCards from "./ServiceCards";
 import '../css/Services.css';
@@ -14,7 +14,7 @@ import exhaustBefore from '/buf2.jpg';
 import exhaustAfter from '/re2.jpg';
 import maintenanceBefore from '/a2.jpg';
 import maintenanceAfter from '/e1.jpg';
-import brakeRepairBefore from '/c1.jpg';
+import brakeRepairBefore from'/c1.jpg';
 import brakeRepairAfter from '/cw2.png';
 import bodyServiceBefore from '/d2.jpg';
 import bodyServiceAfter from '/re5.jpg';
@@ -37,10 +37,22 @@ const OurServices = () => {
 
   return (
     <div className="container pt-24">
-      <div>
-        <h1 className="font-bold text-4xl text-center">
+      <div className="text-center">
+        <h1 className="font-bold text-4xl">
           Our <span className="text-primary">Services</span>
         </h1>
+        
+        {/* Book a Service Call-to-Action Button */}
+        <div className="mt-6">
+          <a
+            href="https://autopec-logistics.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-primary hover:bg-hover text-white font-semibold px-6 py-3 rounded-lg shadow-md transition-all duration-300 transform hover:scale-105"
+          >
+            <FaWrench /> Book a Service
+          </a>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10 gap-5">
